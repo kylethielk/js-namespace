@@ -8,7 +8,7 @@ Javascript does not have a built in syntax for namespaces so we have to implemen
 Usage
 -----
 
-Start by downloading and including js-namespace.js (for development, 4.68KB) or js-namespace.min.js (for production, 1.73KB), of course it must be included in your code before you use it. In other words:
+Start by downloading and including js-namespace.js (for development, 5.09KB) or js-namespace.min.js (for production, 1.73KB), of course it must be included in your code before you use it. In other words:
 
 `<script src="js-namespace.js"></script>
 <script src="money-maker.js"></script>`

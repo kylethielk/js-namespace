@@ -99,6 +99,18 @@
         }
     };
 
+    /**
+     * In order to use
+     *
+     * JsNamespace("Company.SubNamespace1").MyClass = {}
+     * Company.SubNamespace1.MyClass.className
+     *
+     * we must first call this method after all namespaces have been defined.
+     *
+     * In general I recommend putting this in your onload, .ready() or equivalent
+     * event listener to ensure all javascript has been loaded before calling.
+     *
+     */
     JsNamespace.buildClassNames = function ()
     {
         for (var namespaceName in rootNamespaces)
