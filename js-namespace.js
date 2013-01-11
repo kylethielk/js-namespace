@@ -64,26 +64,35 @@
          */
         init:function (namespaceString)
         {
-            var parts = namespaceString.split('.'),
+            var partNames = namespaceString.split('.'),
                 parent = {},
-                currentPart = '';
+                currentPartName = '';
 
             //Add the root object to the global namespace if it does not exist
-            if (!window[parts[0]])
+            if (!window[partNames[0]])
             {
-                window[parts[0]] = {};
-                window[parts[0]].isNamespace = true;
-                parent = window[parts[0]];
-                rootNamespaces[parts[0]] = parent;
+                window[partNames[0]] = {};
+                window[partNames[0]].isNamespace = true;
+                parent = window[partNames[0]];
+                rootNamespaces[partNames[0]] = parent;
             }
-            parts = parts.slice(1);
-
-            for (var i = 0, length = parts.length; i < length; i++)
+            else
             {
-                currentPart = parts[i];
-                parent[currentPart] = parent[currentPart] || {};
-                parent[currentPart]['isNamespace'] = true;
-                parent = parent[currentPart];
+                parent = window[partNames[0]];
+            }
+            //Remove root partName
+            partNames = partNames.slice(1);
+
+            for (var i = 0, length = partNames.length; i < length; i++)
+            {
+                currentPartName = partNames[i];
+                if(parent[currentPartName] && !parent[currentPartName]['isNamespace'])
+                {
+                    throw "Cannot define a namespace inside a non-namespace object.";
+                }
+                parent[currentPartName] = parent[currentPartName] || {};
+                parent[currentPartName]['isNamespace'] = true;
+                parent = parent[currentPartName];
             }
 
             return parent;
