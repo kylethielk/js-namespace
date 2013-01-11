@@ -10,21 +10,45 @@ Usage
 
 Start by downloading and including js-namespace.js (for development, 5.09KB) or js-namespace.min.js (for production, 1.73KB), of course it must be included in your code before you use it. In other words:
 
-`<script src="js-namespace.js"></script>
-<script src="money-maker.js"></script>`
+```html
+<script src="js-namespace.js"></script>
+<script src="money-maker.js"></script>
+```
 
 Usage is then as simple as:
 
-`var namespace = JsNamespace("MyCompany.Organization.Project");
-namespace.MyObject = {};`
+```javascript
+var namespace = JsNamespace("MyCompany.Organization.Project"); 
+namespace.MyObject = {};
+```
 
 or shorter:
 
-`JsNamespace("MyCompany.Organization.Project").MyObject = {};`
+```javascript
+JsNamespace("MyCompany.Organization.Project").MyObject = {};
+```
 
 MyObject can then be accessed globally as follows:
 
-`var someProperty = MyCompany.Organization.Project.MyObject.someProperty;`
+```javascript
+var someProperty = MyCompany.Organization.Project.MyObject.someProperty;
+```
+
+All namespace objects and their immediate children will also have a new property 'className'. This will contain the full name of the object and/or namespace. For example:
+
+```javascript
+JsNamespace("MyCompany.Organization.Project").MyObject = 
+{
+  logger: function()
+  {
+    //Will print "MyCompany.Organization.Project.MyObject"
+    console.log(this.className);
+  }
+};
+JsNamespace.buildClassNames();
+
+MyCompany.Organization.Project.MyObject.logger();
+```
 
 Running the Tests
 -----------------
