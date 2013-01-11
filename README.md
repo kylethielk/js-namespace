@@ -3,7 +3,29 @@ Welcome to js-namespace
 
 js-namespace is a simple javascript 'class' designed to simply the iniatilization and use of namespaces in javascript.
 
-Javascript does not have a built in syntax for namespaces so we have to implement them ourselves. I have tried many different approaches for namespaces and this project serves to demonstrate the one I've found most effective.
+Javascript does not have a built in syntax for namespaces so we have to implement them ourselves. Out of all the different approaches I've tried, this is an amalgamation of those I've found to be most useful.
+
+Usage
+=====
+
+Start by downloading and including js-namespace.js, of course it must be included in your code before you use it. In other words:
+
+`<script src="js-namespace.js"></script>
+<script src="money-maker.js"></script>`
+
+Usage is then as simple as:
+
+`var namespace = JsNamespace("MyCompany.Organization.Project");
+namespace.MyObject = {};`
+
+or shorter:
+
+`JsNamespace("MyCompany.Organization.Project").MyObject = {};`
+
+MyObject can then be accessed globally as follows:
+
+`var someProperty = MyCompany.Organization.Project.MyObject.someProperty;`
+
 
 License
 -------
