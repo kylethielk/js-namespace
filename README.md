@@ -1,7 +1,7 @@
 Welcome to js-namespace
 =======================
 
-js-namespace is a simple javascript 'class' designed to simplify the iniatilization and use of namespaces in javascript.
+js-namespace is a simple javascript 'class' designed to simplify the initialization and use of namespaces in javascript.
 
 Javascript does not have a built in syntax for namespaces so we have to implement them ourselves. Out of all the different approaches I've tried, this is an amalgamation of those I've found to be most useful.
 
